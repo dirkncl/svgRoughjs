@@ -1,9 +1,7 @@
 import CodeMirror from '../../node_modules/codemirror-6.65.7/src/codemirror.js';
-import CodeMirrorStyle from '../../node_modules/codemirror-6.65.7/lib/codemirror.css' with {type:'css'};
 import '../../node_modules/codemirror-6.65.7/mode/xml/xml.js';
 import { OutputType, Svg2Roughjs } from '../../src/index.js';
 import { initializeTestUI } from './testing.js';
-import { insertCSSStyleSheet, insertCSSStyleLink } from './insert-css.js'  
 import styles from './assets/styles.css' with { type: "css" };
 
 const SAMPLE_BPMN = await (await fetch('./src/samples/bpmn1.svg')).text();
@@ -19,7 +17,6 @@ const SAMPLE_TREE = await (await fetch('./src/samples/tree1.svg')).text();
 const SAMPLE_VENN = await (await fetch('./src/samples/venn.svg')).text();
 
 document.adoptedStyleSheets.push(styles);
-insertCSSStyleLink(CodeMirrorStyle)
 let svg2roughjs;
 let loadingSvg = false;
 let scheduledLoad = null;
