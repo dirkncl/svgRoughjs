@@ -1,0 +1,43 @@
+<!doctype html>
+
+<title>CodeMirror: Close-Tag Demo</title>
+<meta charset="utf-8"/>
+<style>
+      .CodeMirror {border-top: 1px solid #888; border-bottom: 1px solid #888;}
+    </style>
+<div id=nav>
+  <a href="https://codemirror.net/5"><h1>CodeMirror</h1><img id=logo src="../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../index.html">Home</a>
+    <li><a href="../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/codemirror/codemirror5">Code</a>
+  </ul>
+  <ul>
+    <li><a class=active href="#">Close-Tag</a>
+  </ul>
+</div>
+
+<article>
+<h2>Close-Tag Demo</h2>
+<form><textarea id="code" name="code"><html</textarea></form>
+
+    <script type="module">
+      import CodeMirror from "../src/codemirror.js"
+      import "../addon/edit/closetag.js"
+      import "../addon/fold/xml-fold.js"
+      import "../mode/xml/xml.js"
+      import "../mode/javascript/javascript.js"
+      import "../mode/css/css.js"
+      import "../mode/htmlmixed/htmlmixed.js"
+
+      import docs_css from '../doc/docs.css' with {type:'css'};
+      
+      document.adoptedStyleSheets.push(docs_css);
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: 'text/html',
+        autoCloseTags: true
+      });
+    </script>
+  <p>Uses the <a href="https://codemirror.net/5/doc/manual.html#addon_closetag">closetag</a> addon to auto-close tags.</p>
+  </article>
